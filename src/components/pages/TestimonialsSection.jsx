@@ -4,6 +4,8 @@ import { useState } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react"
+import farmer from '../../../public/farmer.jpg'
+import Image from "next/image"
 
 const testimonials = [
     {
@@ -12,7 +14,7 @@ const testimonials = [
         role: "Professional Chef",
         content:
             "I absolutely love Fresh Harvest! The quality of their produce is outstanding, always fresh, flavorful, and delicious. The convenience of ordering online and having it delivered to my doorstep saves me so much time, and the variety is incredible. As a professional chef, I rely on the freshest ingredients, and Fresh Harvest never disappoints. Highly recommended!",
-        avatar: "/placeholder.svg?key=avatar1",
+        avatar: farmer,
     },
     {
         id: 2,
@@ -45,36 +47,32 @@ export function TestimonialsSection() {
 
     return (
         <section className="py-16 bg-white relative">
-            {/* Decorative leaves */}
-            <div className="absolute top-10 left-10 w-16 h-16 opacity-20">
-                <div className="w-full h-full bg-green-400 rounded-full transform rotate-45"></div>
-            </div>
-            <div className="absolute bottom-10 right-10 w-12 h-12 opacity-20">
-                <div className="w-full h-full bg-green-300 rounded-full transform -rotate-12"></div>
-            </div>
 
             <div className="container mx-auto px-4">
                 <div className="text-center mb-12">
                     <p className="text-green-600 font-medium mb-2">Testimonial</p>
                     <h2 className="text-4xl font-bold text-gray-900 mb-4">What Our Customers Say</h2>
                     <p className="text-gray-600 max-w-2xl mx-auto">
-                        Don't just take our word for it - here's what some of our customers have to say about their experience with
-                        Fresh Harvest:
+                        Don't just take our word for it - here's what some of our customers have to say about their experience with Fresh Harvest:
                     </p>
                 </div>
 
                 <div className="max-w-4xl mx-auto">
-                    <Card className="border-0 shadow-lg">
+                    <Card className="border-none shadow-none">
                         <CardContent className="p-8 md:p-12">
                             <div className="flex flex-col md:flex-row items-center gap-8">
                                 {/* Avatar */}
                                 <div className="flex-shrink-0">
-                                    <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden bg-gray-200 relative">
-                                        <img
-                                            src={testimonials[currentTestimonial].avatar || "/placeholder.svg"}
+                                    <div className="w-[202px]  h-[280px]  md:w-[280px] md:h-[380px] rounded-[50%] overflow-hidden bg-gray-200 relative">
+                                        <Image
+                                            src={farmer}
                                             alt={testimonials[currentTestimonial].name}
                                             className="w-full h-full object-cover"
+                                            width={128} 
+                                            height={128}
+                                            priority
                                         />
+
                                     </div>
                                 </div>
 
@@ -131,5 +129,6 @@ export function TestimonialsSection() {
                 </div>
             </div>
         </section>
+
     )
 }

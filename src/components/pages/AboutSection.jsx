@@ -1,47 +1,43 @@
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
+import banner from "../../../public/benner-1.png"
+import dinner from "../../../public/dinner.png"
+import tree from "../../../public/tree.png"
 
 export function AboutSection() {
     return (
-        <section className="relative bg-gray-50 py-16">
-            {/* Decorative leaves */}
-            <div className="pointer-events-none absolute right-16 top-16 h-16 w-16 opacity-20">
-                <div className="h-full w-full rotate-45 rounded-full bg-green-400" />
-            </div>
-            <div className="pointer-events-none absolute left-10 bottom-20 h-12 w-12 opacity-20">
-                <div className="h-full w-full -rotate-12 rounded-full bg-green-300" />
-            </div>
+        <section className="relative  ">
+            {/* Decorative shapes */}
 
             <div className="container mx-auto px-4">
                 <div className="grid items-center gap-12 lg:grid-cols-2">
-                    {/* Left */}
-                    <div className="relative mx-auto w-full max-w-[686.11px]">
-                        {/* Background plate */}
-                        <div className="absolute inset-0 -z-10 -rotate-3 scale-95 rounded-2xl from-green-100 to-green-200 bg-gradient-to-br" />
+                    {/* Left side image section */}
+                    <div className="relative mx-auto md:w-[666px] md:-mt-33 md:ml-8">
+
 
                         {/* Main farmer image */}
                         <Image
-                            src="/images/about-farmer.png"
+                            src={banner}
                             alt="Fresh Harvest farmer with produce"
                             width={686}
                             height={657}
-                            className="w-full rounded-2xl shadow-lg lg:h-[657px] lg:w-[686.1058px]"
+                            className=" md:rounded-full lg:h-[657px] lg:w-[686px] object-cover"
                             priority
                         />
 
-                        {/* Small floating product card */}
+                        {/* Floating product card */}
                         <div
-                            className="absolute right-[8%] top-[58%] 
-              flex h-[192px] w-[150.4px] flex-col items-center gap-2 
-              rounded-2xl bg-white p-3 shadow-xl"
+                            className="absolute right-[8%] top-[70%] 
+                            flex md:h-[192px] md:w-[150px] flex-col items-center gap-2 
+                            rounded-2xl bg-white md:p-3 shadow-xl"
                         >
-                            <div className="h-[96px] w-full overflow-hidden rounded-xl bg-green-100">
+                            <div className="md:h-[90px] w-[82px] h-[85px] md:w-full overflow-hidden rounded-xl">
                                 <Image
-                                    src="/images/leafy-greens.png"
+                                    src={dinner}
                                     alt="Mushroom / Greens"
                                     width={150}
                                     height={96}
-                                    className="h-full w-full object-cover"
+                                    className="md:h-full md:w-full  object-cover"
                                 />
                             </div>
                             <div className="w-full text-center">
@@ -54,43 +50,33 @@ export function AboutSection() {
                         </div>
 
                         {/* Fresh Harvests badge */}
-                        <div className="absolute bottom-6 left-6 flex items-center gap-3 rounded-xl bg-white p-4 shadow-lg">
-                            <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-green-600">
-                                <div className="h-6 w-6 rounded-sm bg-white" />
+                        <div className="absolute md:bottom-55 bottom-16  md:left-70 left-40 flex items-center gap-4 rounded-xl bg-white md:px-2 px-2  md:py-2 ">
+                            {/* Icon box */}
+                            <div className="flex md:h-6 h-2  md:w-12 w-6 items-center justify-center rounded-2xl bg-green-600">
                             </div>
+                            {/* Text */}
                             <div>
-                                <h4 className="font-bold text-gray-900">Fresh Harvests</h4>
-                                <p className="text-sm text-gray-600">100% Organic</p>
+                                <h4 className="font-bold text-gray-900 md:text-lg">Fresh Harvests</h4>
                             </div>
                         </div>
-
-                        {/* Secondary decorative image block */}
-                        <div className="absolute -right-[40px] -top-[40px] hidden h-[334px] w-[461px] rounded-2xl bg-white/70 p-3 shadow-lg lg:block">
-                            <Image
-                                src="/images/veggie-grid.png"
-                                alt="Decorative veggies"
-                                width={461}
-                                height={334}
-                                className="h-full w-full rounded-xl object-cover"
-                            />
-                        </div>
-
                         {/* Tiny decorative leaf */}
                         <Image
-                            src="/images/leaf.png"
+                            src={tree}
                             alt="Leaf"
                             width={24}
                             height={24}
-                            className="absolute -top-6 left-[20%] hidden h-6 w-6 rotate-[18deg] lg:block"
+                            className="absolute md:top-25 -top-[2px] md:left-[80%] left-[70%]  h-6 w-6 rotate-[18deg] lg:block"
                         />
                     </div>
 
-
-                    {/* Right (Image + overlays) */}
-                    <div className="space-y-6">
+                    {/* Right side content */}
+                    <div className="space-y-6 mt-15 md:ml-26 md:w-[461px]">
                         <div>
-                            <p className="mb-2 font-medium text-green-600">About us</p>
-                            <h2 className="mb-4 text-4xl font-bold text-gray-900">
+                            <p className="inline-block mb-2 rounded-md bg-[#749B3F1A] px-3 py-1 font-medium text-green-600">
+                                About us
+                            </p>
+
+                            <h2 className="mb-4 text-4xl font-bold text-gray-900 leading-snug">
                                 About Fresh Harvest
                             </h2>
                             <p className="mb-6 leading-relaxed text-gray-600">
@@ -107,7 +93,7 @@ export function AboutSection() {
                             </p>
                         </div>
 
-                        <Button className="rounded-lg bg-orange-500 px-8 py-3 text-white hover:bg-orange-600">
+                        <Button className="rounded-lg bg-orange-500 px-8 py-3 text-white hover:bg-orange-600 transition-all">
                             Read More
                         </Button>
                     </div>
