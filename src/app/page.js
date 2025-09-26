@@ -7,11 +7,11 @@ import { TestimonialsSection } from "@/components/pages/TestimonialsSection";
 export default function Home() {
   return (
     <div className="w-full min-h-screen">
-      <div>
+      {/* <div>
         <ProductsSection />
         <AboutSection />
-      </div>
-      <SeasonalOffer />
+      </div> */}
+      {/* <SeasonalOffer /> */}
       <TestimonialsSection />
       <BlogSection />
     </div>
