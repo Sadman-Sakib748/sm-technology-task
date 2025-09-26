@@ -3,24 +3,38 @@
 import { useParams } from "next/navigation";
 import ProductCard from "@/components/pages/ProductCard";
 
+// demo data
+const mockProducts = [
+  {
+    id: "1",
+    name: "Coconut",
+    price: 6.3,
+    image: "/coconut-whole-and-halved-showing-white-flesh.jpg",
+    rating: 4.5,
+    reviews: 120,
+    description: `Fresh and high-quality coconuts in good condition. Coconut is a fruit with various nutrients,
+    especially potassium, manganese and many others. From coconut to coconut water, it is useful for health and beauty.`,
+  },
+  {
+    id: "2",
+    name: "Orange",
+    price: 4.2,
+    image: "/images/orange.png",
+    rating: 4.7,
+    reviews: 95,
+    description: `Juicy and fresh oranges, perfect for juices and desserts.`,
+  },
+];
+
 export default function ProductDetailsPage() {
-    const params = useParams();
+  const params = useParams();
+  const product = mockProducts.find((p) => p.id === params.id);
 
-    // 🔹 এখানে সরাসরি hardcoded data
-    const mockProducts = [
-        { id: "1", productName: "Mushroom", price: 2.3, images: ["/fresh-mushrooms.jpg"], categoryId: "1" },
-        { id: "2", productName: "Mustard", price: 2.5, images: ["/mustard.jpg"], categoryId: "2" },
-        { id: "3", productName: "Onion", price: 1.8, images: ["/onion.jpg"], categoryId: "1" },
-        { id: "4", productName: "Tomato", price: 3.0, images: ["/tomato.jpg"], categoryId: "2" },
-    ];
+  if (!product) return <p className="p-8 text-red-500">Product not found</p>;
 
-    const product = mockProducts.find((p) => p.id === params.id);
-
-    if (!product) return <p className="p-8 text-red-500">Product not found</p>;
-
-    return (
-        <div className="p-8">
-            <ProductCard product={product} />
-        </div>
-    );
+  return (
+    <div className="p-8">
+      <ProductCard product={product} />
+    </div>
+  );
 }

@@ -12,7 +12,7 @@ import imageIcon from '../../../../../public/imageIcon.png';
 import { AuthModal } from "../../AuthModal";
 import Link from "next/link";
 
-export default function NavBar() {
+export default function CompactNavBar() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false); // mobile menu toggle
 
